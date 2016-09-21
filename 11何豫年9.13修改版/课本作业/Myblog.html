@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的博客</title>
+<script type="text/javascript">
+	function showTime(){
+		var now=new Date();
+		var h=parseInt(now.getHours());
+		var m=parseInt(now.getMinutes());
+		var s=parseInt(now.getSeconds());
+		if(h<0){
+			h="0"+h;
+		}
+		if(m<0){
+			m="0"+m;
+		}
+		if(s<0){
+			s="0"+s;
+		}
+		document.getElementById("time").innerHTML=h+":"+m+":"+s;
+		setTimeout("showTime()",1000);
+		
+	}
+	function is_leap(year) {
+   			return (year%100==0?panduan=(year%400==0?1:0):panduan=(year%4==0?1:0));
+} 
+function calendar(){
+	showTime();
+	var nstr=new Date(); 
+	var y=nstr.getFullYear(); 
+	var m=nstr.getMonth();
+	var d=nstr.getDate(); 
+	var dayofMonth=new Date(y,m,1); 
+		
+			var hour=nstr.getHours();
+			var minute=nstr.getMinutes();
+			var second=nstr.getSeconds();
+				if(minute<0){
+					minute="0"+minute;
+				}
+				if(second<0){
+					second="0"+second;
+				}	
+	var dayofweek=dayofMonth.getDay(); 
+
+	var m_days=new Array(31,28+is_leap(y),31,30,31,30,31,31,30,31,30,31); 
+
+	var hangshu=Math.ceil((m_days[m] + dayofweek)/7); 
+		var p="<p align='center' >"+y+"年"+(m+1)+"月"+"</p>"+"<table border='1' borderColor='blue'  align='center' width='200' cellspacing='0'><tr><td align='center' borderColor='blue'>日</td><td align='center' borderColor='blue'>一</td><td align='center' borderColor='blue'>二</td><td align='center' borderColor='blue'>三</td><td align='center' borderColor='blue'>四</td><td align='center' borderColor='blue'>五</td><td align='center' borderColor='blue'>六</td></tr>";
+	
+
+		for(i=0;i<hangshu;i++) { 
+			p=p+"<tr>";
+   				for(k=0;k<7;k++) { 
+      				idx=i*7+k; 
+      				date_str=idx-dayofweek+1;
+      				(date_str<=0 || date_str>m_days[m]) ? date_str="&nbsp;" : date_str=idx-dayofweek+1; 
+     				 date_str==d ? 	p=p+"<td align='center' bgcolor='red' borderColor='blue'>" + date_str + "</td>" : p=p+"<td align='center' >" + date_str + "</td>";
+   }
+   				p=p+"</tr>";
+}
+			p=p+"</table>";
+			document.getElementById("rili").innerHTML=p;
+}
+
+</script>
+</head>
+<style type="text/css">
+*{margin:0px;padding:0px;}
+img{
+	border:none;
+	vertical-align:middle;
+	}
+
+body{
+			width:733px;
+	margin:auto;
+	}
+#top{
+	width:733px;
+	height:127px;
+	}
+#clear{
+	clear:both;
+	}
+#daohang{
+	float:left;
+	
+	}
+#daohang ul li{
+	height: 25px;
+	float: left;
+	font-size: 12px;
+	width: 81px;
+	text-align: center;
+	color: #FFF;
+	background-color: #666;
+	list-style: none;
+}
+
+#leftmain{
+	float:left;
+	width:200px;
+	}
+#input{
+	margin-top:10px;
+	margin-left:25px;
+	width:150px;
+	}
+#bt{
+	padding-left:119px;
+	width:200px;
+	margin-top:10px;
+
+	}
+#xuxian{
+	border-bottom:dashed #999 1px;
+	margin-top:10px;}
+#xinxi{
+	padding-left:50px;
+	color:#0CC;
+	font-size:12px;
+	
+	line-height:20px;}
+#rightmain{
+	
+	border-left:1px solid #999;
+	width:530px;
+	float:left;}
+.biaoti{
+	margin-top:5px;
+
+	font: "黑体";
+	font-weight: bold;
+}
+#youtu{
+	margin-left:30px;
+	margin-top:5px;}
+.zhengwen{
+	
+	font-size:12px;
+	line-height:20px;}
+a{
+	color:#CCC;
+	text-decoration:none;}
+a:hover{
+	color:#F00;
+}
+#main a{
+	color:#666;}
+#main a:hover{
+	color:#F00;
+}
+
+</style>
+
+<body onload="calendar()">
+		<div id="top">
+    		<img src="images/top.png" alt="我的博客" />
+    	</div>
+    	<div id="daohang">
+        	<ul id="clear">             <!--我在这里清楚浮动不知道正不正确-->
+           	  <li style="text-align:right">当前时间为：</li>
+                <li id="time"></li>
+                <li></li>
+              	<li><a href="#">首页</a></li>
+                <li><a href="#">相册</a></li>
+                <li><a href="#">留言</a></li>
+                <li><a href="#">搜索</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+      
+            </ul>
+        </div>
+        <div id="main">
+        	<div id="leftmain">
+            	<form action="" method="post" name="myForm">
+            	<div id="rili" align="center"></div>
+                <div><img src="images/J1N$V[_4I]3[22{(RQY4TII.png" width="200" /></div>
+                <div><input type="text" id="input" value="请输入" style="color:#999" /></div>
+                <div id="bt"> <img src="images/searchBtn.jpg" alt="搜索" /></div>
+                <div id="xuxian"></div>
+              <div style="margin-top:10px;"><img src="images/[R0IG(1F[1IPE[QZ8[~J_RA.png"/></div>
+              <div id="xinxi">
+                 	<div>用户名：那一年冬天</div>
+                    <div>等 级：初来乍到</div>
+                    <div> 威望：10</div>
+                    <div> 金钱：25</div>
+                    <div> 在线时间：714分钟</div>
+                    <div> 日志总数：6</div>
+                    <div> 评论数量：4</div>
+                    <div> 访问次数：118</div>
+                    <div> 建立时间：2006-07-14</div>
+                 </div>
+                 <div id="xuxian"></div>
+                <div style="margin-top:5px"><img src="images/[RXBFL}S(@@)MOY@}EA3QQW.png" width="200" alt="友情链接" /></div>
+            	<div><img src="images/spirte.png"  alt="其他信息"/></div>
+            </div>
+            </form>
+          
+            
+            <div id="rightmain">
+           	  <div class="biaoti">旅游风光</div>
+              <div id="youtu"><img src="images/scenery1.jpg"  alt="风景图" /></div>
+                <div class="biaoti">上海老街印象</div>
+              <div class="zhengwen" align="right">2011-01-28 18:16</div>
+                <div class="zhengwen">上海老街，又称小东门，这里曾是100年前上海开埠后最早灯火辉煌、万商云集的地方，地处上海市黄浦区老城厢，也就是小东门城门所在地。由于历史原因，城门没有被保留下来，但是老城厢环城的9扇门至今仍深深刻在上海人民心中。上海老街所在的小东门地区，原是上海对外贸易、小商品交易的重要场地，见证了上海的经济社会发展。</div>
+                <div class="zhengwen"align="right"><a href="#">阅读全文(27)</a> |<a href="#"> 回复(0)</a> |<a href="#"> 推送</a></div>
+                <div id="xuxian"></div>
+              <div class="biaoti">苏州游记之山塘</div>
+                <div class="zhengwen"align="right">2011-02-20 12:42</div>
+              <div class="zhengwen">山塘街位于古城苏州的西北部，东连红尘中一二等富贵风流之地阊门，西接吴中第一名胜虎丘，全长3600米，因此被称作七里山塘。山塘街始建于公元825年，为唐朝大诗人白居易来苏州担任刺史时所建。有民歌唱到上有天堂，下有苏杭。杭州有西湖，苏州有山塘。两处好地方，无限好风光。这便是对山塘街的生动写照。</div>
+                <div class="zhengwen"align="right"><a href="#">阅读全文(27)</a> |<a href="#"> 回复(0)</a> |<a href="#"> 推送</a></div>
+               <div id="xuxian"></div>
+               <div><img src="images/02.png" /></div>
+            </div>
+            <div><img src="images/btom.png" alt="下部" />
+             
+            </div>
+        </div>
+  
+</body>
+</html>
