@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>标题交替显示效果</title>
+<script>
+var idx=0;
+function changeTitle(){
+	if(idx%2==0){
+		document.title="★☆美丽说，发现美★☆";
+	}else{
+		document.title="☆★美丽说，分享美☆★";
+	}
+	idx++;
+	setTimeout("changeTitle()",2000);
+}
+window.onload=changeTitle;
+</script>
+</head>
+	
+<body>
+	<img src="images/meiliMain.jpg" alt="zhuye">
+</body>
+
+</html>

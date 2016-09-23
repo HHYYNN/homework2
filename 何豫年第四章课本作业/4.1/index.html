@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>弹出窗口</title>
+<script>
+function openwindow(){
+	window.status="系统当前状态：您正在注册用户...";
+	if(window.screen.width==1024&&window.screen.height==768)
+		window.open("register.html");
+	else
+		window.alert("请设置分辨率为1024x768，然后再打开");
+}
+function closewindow(){
+	if(window.confirm("您确认要退出吗？")){
+		opener=null;
+		window.close();
+	}
+}
+</script>
+</head>
+
+<body>
+<div style="margin:0 auto; width:780px;">
+	<div><img src="images/head.jpg"></div>
+	<div>
+		<img src="images/foot.jpg" align="top">
+		<input type="button" name="regButton" value="用户注册" onclick="openwindow()">
+		<input type="button" name="exitButton" value="退出" onclick="closewindow()">
+	</div>
+</div>
+</body>
+
+</html>

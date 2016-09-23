@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>复选框</title>
+<style type="text/css">
+.bg{
+	background-image:url(images/list_bg.gif);
+	background-repeat:no-repeat;
+}
+</style>
+
+<script>
+function check(){
+	var oInput=document.getElementsByName("product");
+	for(var i=0;i<oInput.length;i++){
+		if(document.getElementById("quanbu").checked==true){
+			oInput[i].checked=true;
+		}else{
+			oInput[i].checked=false;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+	<table border = "0" cellspacing="0"  class = "bg">
+		<tr style="height:40px;">
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr style="font-weight:bold;">
+			<td><input id="quanbu" type="checkbox" value="全选" onclick="check()"/>全选</td>
+			<td>商品图片</td>
+			<td>商品名称/出售者/联系方式</td>
+			<td>价格</td>
+		</tr>
+		<tr>
+			<td colspan="4"><hr style="border:1px #cccccc dashed"></td>
+		</tr>
+		<tr>
+			<td><input name="product" type="checkbox" value="1"></td>
+			<td><img src="images/list0.jpg" /></td>
+			<td>
+				杜比环绕，家庭影音必备，超真实享受<br/>
+				出售者：ling112233<br/>
+				<img src="images/online_pic.gif"/>
+				<img src="images/list_tool_fav1.gif"/>收藏
+			</td>
+			<td>一口价<br/>2833.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><hr style="border:1px #cccccc dashed"></td>
+		</tr>
+		<tr>
+			<td><input name="product" type="checkbox" value="2"></td>
+			<td><img src="images/list1.jpg" /></td>
+			<td>
+				英伟达高性能显卡，畅你所玩<br/>
+				出售者：daafgfg<br/>
+				<img src="images/online_pic.gif"/>
+				<img src="images/list_tool_fav1.gif"/>收藏
+			</td>
+			<td>一口价<br/>353.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><hr style="border:1px #cccccc dashed"></td>
+		</tr>
+		<tr>
+			<td><input name="product" type="checkbox" value="3"></td>
+			<td><img src="images/list2.jpg" /></td>
+			<td>
+				高清晰，30寸等离子电视<br/>
+				出售者：发光<br/>
+				<img src="images/online_pic.gif"/>
+				<img src="images/list_tool_fav1.gif"/>收藏
+			</td>
+			<td>一口价<br/>6553.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><hr style="border:1px #cccccc dashed"></td>
+		</tr>
+		<tr>
+			<td><input name="product" type="checkbox" value="4"></td>
+			<td><img src="images/list3.jpg" /></td>
+			<td>
+				联想笔记本，超薄游戏本<br/>
+				出售者：阿瑟发<br/>
+				<img src="images/online_pic.gif"/>
+				<img src="images/list_tool_fav1.gif"/>收藏
+			</td>
+			<td>一口价<br/>3553.0</td>
+		</tr>
+	</table>
+</body>
+
+</html>
