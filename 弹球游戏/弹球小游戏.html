@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹球小游戏</title>
+<style type="text/css">
+	#kuang{
+		position:absolute;
+		width:500px;
+		height:500px;
+		background-color:#000;
+		}
+	#ban{
+		width:120px;
+		height:10px;
+		top:480px;
+		left:225px;
+		background-color:#F00;
+		position:absolute;
+		}
+	#ball{
+		top:200px;
+		width:20px;
+		height:20px;
+		top:460px;
+		left:260px;
+		background-color:#FFF;
+		position:absolute;
+		}
+		ul li{
+			padding:0px;
+			list-style:none;
+			float:left;
+			
+		}
+		.clear{
+			clear:both;}
+		
+	.zuan{
+		
+		width:48px;
+		height:20px;
+		background-color:#CF3;
+		margin:1px;1px;
+		}
+</style>
+</head>
+<body>
+	<input type="button" value="开始游戏" id="startBtn">
+	<input type="button" value="暂停游戏" id="stopBtn">
+	<div id="kuang">
+    	
+        	<ul id="qiang" class="clear">
+            	<li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan"></li><li class="zuan">
+            </ul>
+        
+    	<div id="ball"></div>
+        <div id="ban"></div>
+    </div>
+    <script type="text/javascript">
+		var len=document.getElementsByTagName("li");
+		var array=new Array(len.length);
+		var startBtn=document.getElementById("startBtn");//游戏开始的按钮
+		var stopBtn=document.getElementById("stopBtn");//暂停游戏的按钮
+		var kuang=document.getElementById("kuang");//外面的框
+    	var ball=document.getElementById("ball");//球
+		var ban=document.getElementById("ban");//挡板
+		var width=kuang.offsetWidth-ban.offsetWidth;//框的实质宽度和挡板的实质宽度 左右移动的一个范围。
+    	var fang1="up";//上下方向的变量
+		var fang2="left";//左右方向的变量
+		var game;
+		    function xiaochu(){
+				for(var i=0;i<len.length;i++){
+					array[i]=len[i];
+					
+					if(ball.offsetTop=array[i].offsetTop+20&&(ball.offsetLeft+20)>=array[i].offsetLeft&&(ball.offsetLeft+20)<=array[i].offsetLeft+48){
+						array[i].style.visibility="hidden";
+						break;
+					}
+				
+				}
+				
+			}
+		startBtn.onclick=function(){
+			var temp=3;//弹球速度。
+			game=window.setInterval(function()
+			{
+				switch(fang2){
+					case "left":
+					ball.style.left=ball.offsetLeft-temp+"px";
+					break;
+					case "right":
+					ball.style.left=ball.offsetLeft+temp+"px";
+					break;
+					default:
+					ball.style.right=ball.offsetLeft+temp+"px";
+					break;			
+				}
+				if(ball.offsetLeft<0){//如果球撞到左边向右反弹
+					fang2="right";
+				}else if(ball.offsetLeft+20>=500){//否则向左反弹
+					fang2="left";
+				}
+				
+				
+				switch(fang1){
+					case "up":
+					ball.style.top=ball.offsetTop-temp+"px";
+					break;
+					case "down":
+					ball.style.top=ball.offsetTop+temp+"px";
+					break;
+					default:
+					ball.style.top=ball.offsetTop-temp+"px";
+					break;
+				}
+				if(ball.offsetTop+20==480&&ball.offsetLeft>ban.offsetLeft&&ball.offsetLeft<(ban.offsetLeft+120)){//需要同时满足3个条件挡板才反弹
+						fang1="up";
+				}else if(ball.offsetTop<70){//70
+						xiaochu();
+						fang1="down";
+							
+						
+				}else if(ball.offsetTop+20>480){//游戏结束的范围。
+					window.clearInterval(game);
+					alert("Game Over!");
+					ball.style.display="none";
+				}
+			},10);
+		}
+		document.onkeydown=function(){
+			var e=e||event;
+			var keycode=e.keyCode||e.which;
+			if(keycode==37){
+				if(ban.offsetLeft<0){
+				}else{
+					ban.style.left=ban.offsetLeft-40+"px";//可以控制挡板的速度
+					}
+			}
+			if(keycode==39){
+				if(ban.offsetLeft>width){
+				}else{
+					ban.style.left=ban.offsetLeft+40+"px";
+					}
+			}
+		}
+			stopBtn.onclick=function()
+		{
+			window.clearInterval(game);	
+		}
+	
+    </script>
+</body>
+</html>
