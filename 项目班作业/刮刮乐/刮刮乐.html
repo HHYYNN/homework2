@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#百分百中奖—福麟祥珠宝</title>
+<style type="text/css">
+ body,html{
+	 background-color:#F00;
+         margin: 0;
+         padding: 0;
+     }
+     .box{
+         width: 200px;
+         height: 200px;
+		 margin-left:370px;
+         background: red;
+         position: relative;
+     }
+     .box p{
+		 text-align:center;
+		  margin-left:20px;
+         font:20px/30px "microsoft yahei";
+		 color:#FFF;
+         text-align: center;
+     }
+     #canvas{
+		  margin-left:20px;
+         position: absolute;
+         top: 0;
+         left: 0;
+     }
+	 #tupian{
+		 padding:0;
+		 
+		 position:relative;
+		 margin-left:350px;
+		 }
+	.ziti{
+		font-weight:800;
+		margin-left:350px;
+		font:"microsoft yahei";
+		size:50px;
+		color:#FF3;}
+</style>
+</head>
+
+<body>
+	<div id="tupian"><img src="(Z~HL7P35AT)9T(4`PI3`RD.png" /></div>
+    <p class="ziti">刮奖区:</p>
+	<div class="box">
+    <p>&yen;3000</p>
+     <canvas height="50" width="200" id="canvas"></canvas>
+ </div>
+<script>
+    var canvas = document.getElementById("canvas");
+     var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#666";
+     ctx.fillRect(0,0,200,50);
+    ctx.globalCompositeOperation="destination-out";
+
+      canvas.onmousemove = function(e){
+          ctx.beginPath();
+          ctx.fillStyle = "#f00";
+          var _x = e.offsetX, _y = e.offsetY;
+          ctx.clearRect(_x,_y,1,1);
+          ctx.arc(_x,_y,10,0,360);
+          ctx.fill();
+          ctx.closePath();
+
+          var num = 0;
+          var datas = ctx.getImageData(0,0,200,50);
+          for (var i = 0; i < datas.data.length; i++) {
+              if (datas.data[i] == 0) {
+                  num++;
+              };
+          };
+          if (num >= 25000) {
+			  alert("恭喜你中奖，请尽快把他带回家");
+          }
+      };
+
+
+ </script>
+</html>

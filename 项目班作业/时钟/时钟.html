@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>时钟</title>
+</head>
+<script type="text/javascript">
+	function show(){
+		var mycontext=document.getElementById("mycanvas").getContext("2d");
+		mycontext.clearRect(0,0,500,500);
+		var now= new Date();
+    	var shi= now.getHours();
+  	  	var fen= now.getMinutes();
+   		var miao=now.getSeconds();
+			//画圆盘
+			mycontext.beginPath();
+   			 mycontext.arc(250,250,250,0,360*Math.PI,true);
+    		mycontext.closePath();
+   			 mycontext.stroke();
+	//时钟刻度
+	 for(var i=0;i<12;i++){
+        mycontext.save();//临时改变图像状态
+        mycontext.translate(250,250);
+        mycontext.beginPath();
+        mycontext.lineWidth=10;
+		
+        mycontext.strokeStyle="red";//渐变笔触
+        mycontext.rotate(i*30*Math.PI/180);
+        mycontext.moveTo(0,-250);
+        mycontext.lineTo(0,-230);
+        mycontext.closePath();
+        mycontext.stroke();
+        mycontext.restore();//回复以前的值
+    }
+	 //绘制分刻度
+    for(var i=0;i<60;i++){
+        mycontext.save();
+        mycontext.translate(250,250);
+        mycontext.beginPath();
+        mycontext.lineWidth=8;
+        mycontext.strokeStyle="blue"
+        mycontext.rotate(i*6*Math.PI/180);
+        mycontext.moveTo(0,-250);
+        mycontext.lineTo(0,-240);
+        mycontext.closePath();
+        mycontext.stroke();
+        mycontext.restore();
+    }
+	 //绘制时针
+    mycontext.save();
+    mycontext.translate(250,250);
+    mycontext.beginPath();
+    mycontext.lineWidth=8;
+    mycontext.lineCap="round"//两端为圆帽
+    mycontext.strokeStyle="black"
+    mycontext.rotate(shi*30*Math.PI/180);
+    mycontext.moveTo(0,-200);//把窗口左上角移到指定的位置
+    mycontext.lineTo(0,20);//长度
+    mycontext.stroke();
+    mycontext.closePath();
+    mycontext.restore();
+	   //绘制分针
+    mycontext.save();
+    mycontext.translate(250,250);
+    mycontext.beginPath();
+    mycontext.lineWidth=8;
+    mycontext.lineCap="round"
+    mycontext.strokeStyle="black"
+    mycontext.rotate(fen*6*Math.PI/180);
+    mycontext.moveTo(0,-220);
+    mycontext.lineTo(0,20);
+    mycontext.stroke();
+    mycontext.closePath();
+    mycontext.restore();
+	//绘制秒针
+    mycontext.save();
+    mycontext.translate(250,250);
+    mycontext.beginPath();
+    mycontext.lineWidth=8;
+    mycontext.lineCap="round"
+    mycontext.strokeStyle="red"
+    mycontext.rotate(miao*6*Math.PI/180);
+    mycontext.moveTo(0,-225);
+    mycontext.lineTo(0,20);
+    mycontext.stroke();
+    mycontext.closePath();
+    mycontext.restore();
+		
+}
+
+window.setInterval(show,1000);
+</script>
+<body>
+	<canvas id="mycanvas" width="500" height="500" style="margin-left:350px">
+</body>
+</html>
