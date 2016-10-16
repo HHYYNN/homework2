@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片的淡入淡出js</title>
+</head>
+<script type="text/javascript" src="图片淡入淡出.js"></script>
+<script type="text/javascript">
+	
+window.onload = function () {
+
+
+		document.getElementById('Button2').onclick = function () {
+
+			fadeout(document.getElementById('tupian'), 0, 3000);
+
+		} 
+		document.getElementById('Button1').onclick = function () {
+
+			fadein(document.getElementById('tupian'), 100, 3000);
+
+		}
+
+}
+
+
+</script>
+<body>
+<button id="Button1">显示</button>
+    <button id="Button2">隐藏</button>
+	<div id="tupian"><img src="01-00-05-c239dc38gw1f5npiongrnj20j611y423.jpg" alt="tupian" width="500px" height="500px" /></div>
+	
+</body>
+</html>

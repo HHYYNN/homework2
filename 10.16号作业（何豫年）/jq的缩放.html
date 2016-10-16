@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>缩放案例</title>
+	
+</head>
+<script src="../../jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").fadeToggle("10000");
+    $("#div2").fadeToggle("20000");
+    $("#div3").fadeToggle("30000");
+	$("#div4").fadeToggle("40000");
+  });
+});
+</script>
+
+<body>
+
+<div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+<button>显示/隐藏</button>
+
+<div id="div1">1</div>
+
+<div id="div2">2</div>
+
+<div id="div3">3</div>
+
+<div id="div4">4</div>
+</body>
+
+</body>
+</html>

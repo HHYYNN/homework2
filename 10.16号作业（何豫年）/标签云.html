@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+	<style type="text/css">
+		div{
+			position:absolute;
+			visibility:hidden;}
+		#buju{
+			visibility:visible;
+			position:relative;
+			width:250px;
+			height:500px;
+			border:1px solid;
+			}
+    	#div1{
+			position:absolute;bottom:0;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div2{
+			position:absolute;bottom:10px;left:70px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div4{
+			position:absolute;bottom:10px;left:100px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div3{
+			position:absolute;bottom:10px;left:150px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div5{
+			position:absolute;bottom:25px;left:100px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div6{
+			position:absolute;bottom:25px;left:150px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div7{
+			position:absolute;bottom:25px;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div8{
+			position:absolute;bottom:25px;left:70px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div9{
+			position:absolute;bottom:25px;left:175px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+		#div10{
+			position:absolute;bottom:25px;left:144px;;
+			background-color:#CCC;
+			width:75px;
+			height:20px;}
+    
+    </style>
+</head>
+<script src="../../jquery-1.11.1.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+		
+		setInterval(
+		function(){
+		var temp=Math.floor(Math.random()*10+1);
+		var speed=Math.floor(Math.random()*3000+1000);
+		$("#div"+temp).css({visibility:'visible'});
+    	$("#div"+temp).animate({bottom:'490px',opacity:0.5},speed*2).fadeToggle();},1000);
+		/*$("#div2").animate({bottom:'480px',opacity:0.8},4000).fadeToggle();*/
+		/*
+			$("#div3").css({'left':'100px','top':'300px'});//改变css
+			if(temp==1){
+			$('#div1').css({visibility:'visible'});
+		}else if(temp==2){
+			$('#div2').css({visibility:'visible'});//显示
+		}
+			
+			
+		var temp=Math.floor(Math.random()*10+1);
+			
+			$("#buju").after("<div id='"+temp+"'  style='position:absolute'>haha</div>");
+			$('#'+temp).css({'left':'100px','top':'250px'});
+			$('#'+temp).animate({bottom:'2500px',opacity:0.5},3000).fadeToggle();*/
+
+});
+
+</script>
+
+<body>
+	<div id="buju">
+    	<div id="div2">阳光美丽</div>
+    	<div id="div1">阳光美丽</div>
+        <div id="div4">阳光美丽</div>
+        <div id="div3">阳光美丽</div>
+         <div id="div5">阳光美丽</div>
+        <div id="div6">阳光美丽</div>
+        <div id="div7">阳光美丽</div>
+    	<div id="div8">阳光美丽</div>
+         <div id="div9">阳光美丽</div>
+        <div id="div10">阳光美丽</div>
+ 		<div id="div2">阳光美丽</div>
+    	<div id="div1">阳光美丽</div>
+        <div id="div4">阳光美丽</div>
+        <div id="div3">阳光美丽</div>
+         <div id="div5">阳光美丽</div>
+        <div id="div6">阳光美丽</div>
+        <div id="div7">阳光美丽</div>
+    	<div id="div8">阳光美丽</div>
+         <div id="div9">阳光美丽</div>
+        <div id="div10">阳光</div>
+    </div>
+</body>
+</html>
